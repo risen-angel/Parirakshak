@@ -86,15 +86,31 @@ USERS = {
     "admin": "admin123"
     }
 def login_page():
-    st.title("Parirakshak Login")
-    username = st.text_input("Username")
-    password = st.text_input("Password", type = "password")
-    if st.button("Login"):
-        if username in USERS and USERS[username] == password:
-            st.session_state.logged_in = True
-            st.rerun()
-        else:
-            st.error("Invalid credentials")
+    st.title("Parirakshak Login System")
+
+    option = st.radio("Select Option", ["Login", "Sign Up"])
+
+    if option == "Login":
+        username = st.text_input("Username")
+        password = st.text_input("Password", type="password")
+
+        if st.button("Login"):
+            if username in USERS and USERS[username] == password:
+                st.session_state.logged_in = True
+                st.rerun()
+            else:
+                st.error("Invalid credentials")
+
+    elif option == "Sign Up":
+        new_user = st.text_input("Create Username")
+        new_pass = st.text_input("Create Password", type="password")
+
+        if st.button("Register"):
+            if new_user in USERS:
+                st.warning("User already exists")
+            else:
+                USERS[new_user] = new_pass
+                st.success("Please login.")
 if not st.session_state.logged_in:
     login_page()
     st.stop()
@@ -193,3 +209,4 @@ if search:
 
 st.divider()
 st.page_link("pages/bridge_status.py", label="Go to Bridge Status Page")
+
