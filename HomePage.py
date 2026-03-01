@@ -82,9 +82,8 @@ a[data-testid="stPageLink"] {
 """, unsafe_allow_html=True)
 if "logged_in" not in st.session_state:
     st.session_state.logged_in = False
-USERS = {
-    "admin": "admin123"
-    }
+if "users" not in st.session_state:
+    st.session_state.users = {"admin": "admin123"}
 def login_page():
     st.title("Parirakshak Login System")
 
@@ -95,7 +94,8 @@ def login_page():
         password = st.text_input("Password", type="password")
 
         if st.button("Login"):
-            if username in USERS and USERS[username] == password:
+            if username in st.session_state.users and \
+   st.session_state.users[username] == password:
                 st.session_state.logged_in = True
                 st.rerun()
             else:
@@ -106,10 +106,10 @@ def login_page():
         new_pass = st.text_input("Create Password", type="password")
 
         if st.button("Register"):
-            if new_user in USERS:
+            if new_user in st.session_state.users:
                 st.warning("User already exists")
             else:
-                USERS[new_user] = new_pass
+                st.session_state.users[new_user] = new_pass
                 st.success("Please login.")
 if not st.session_state.logged_in:
     login_page()
@@ -209,4 +209,5 @@ if search:
 
 st.divider()
 st.page_link("pages/bridge_status.py", label="Go to Bridge Status Page")
+
 
