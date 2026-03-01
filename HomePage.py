@@ -59,7 +59,7 @@ if st.sidebar.button("Logout"): st.session_state.logged_in=False; st.rerun()
 
 col1,col2=st.columns([8,2])
 with col1:
-    st.title("Smart Flyover Monitoring System")
+    st.title("Parirakshak")
     st.caption("Real-Time Structural Health Monitoring Dashboard")
 with col2:
     st.write("Admin Panel")
@@ -115,3 +115,4 @@ if search:
     result = bridges[(bridges["name"].str.contains(search, case=False))|(bridges["pincode"].astype(str).str.contains(search))]
     if not result.empty: st.success("Flyover Found"); st.dataframe(result)
     else: st.error("No Flyover Found")
+
