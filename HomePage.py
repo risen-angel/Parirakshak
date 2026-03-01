@@ -208,6 +208,7 @@ if search:
         st.error("No Flyover Found")
 
 st.divider()
-st.page_link("pages/bridge_status.py", label="Go to Bridge Status Page")
+"""st.page_link("pages/bridge_status.py", label="Go to Bridge Status Page")"""
+
 
 
