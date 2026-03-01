@@ -1,9 +1,12 @@
 import streamlit as st
 import pandas as pd
+from utils import calculate_scores
 
 st.title("Bridge Status Page")
 st.subheader("Bridge Vibration & Camera Monitoring")
 
+
+bridges = calculate_scores(bridges)
 # Load data
 try:
     bridges = pd.read_csv("data/bridges.csv")
@@ -56,6 +59,7 @@ else:
 st.write("Vibration:", selected["vibration"])
 st.write("Stress:", selected["stress"])
 st.write("Crack:", selected["crack"])
+
 
 
 
