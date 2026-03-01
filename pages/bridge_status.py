@@ -12,4 +12,5 @@ except:
 
 bridge = st.selectbox("Select Bridge", bridges["name"])
 st.write(f"You selected: {bridge}")
-st.write("Here you can add vibration graphs, scores, and live camera feed for this bridge.")v
+st.write("Here you can add vibration graphs, scores, and live camera feed for this bridge.")
+
