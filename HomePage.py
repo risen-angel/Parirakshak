@@ -19,7 +19,6 @@ h1,h2,h3,h4 { color: #000000 !important; }
 .blink { animation: blinker 1s linear infinite; color: #E74C3C; font-weight: bold; font-size: 20px; }
 @keyframes blinker { 50% { opacity: 0; } }
 [data-baseweb="input"] label { color: white !important; }
-a[data-testid="stPageLink"] { color: white !important; }
 </style>
 """, unsafe_allow_html=True)
 
@@ -50,19 +49,13 @@ def login_page():
 
 if not st.session_state.logged_in: login_page(); st.stop()
 
-st.sidebar.title("Smart Flyover Dashboard")
-st.sidebar.header("Navigation")
-st.sidebar.write("Home")
-st.sidebar.write("Bridge Status")
-st.sidebar.markdown("---")
-if st.sidebar.button("Logout"): st.session_state.logged_in=False; st.rerun()
-
 col1,col2=st.columns([8,2])
 with col1:
     st.title("Smart Flyover Monitoring System")
     st.caption("Real-Time Structural Health Monitoring Dashboard")
 with col2:
     st.write("Admin Panel")
+    if st.button("Logout"): st.session_state.logged_in=False; st.rerun()
 
 st.divider()
 
