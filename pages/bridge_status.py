@@ -116,7 +116,7 @@ if search:
 
         if st.button("View Live Camera Feed"):
             try:
-                video_file = open("assets/flyover_video.mp4", "rb")
+                video_file = open("flyover_video.mp4", "rb")
                 video_bytes = video_file.read()
                 st.video(video_bytes)
 
@@ -148,4 +148,5 @@ Generated On: {datetime.datetime.now()}
 
     else:
         st.error("No Flyover Found")
+
 
