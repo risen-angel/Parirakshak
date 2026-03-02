@@ -108,10 +108,10 @@ if not st.session_state.logged_in:
 
 col1, col2 = st.columns([8, 2])
 with col1:
-    st.title("Smart Flyover Monitoring System")
+    st.title("Parirakshak")
     st.caption("Real-Time Structural Health Monitoring Dashboard")
 with col2:
-    st.write("Admin Panel")
+    
     if st.button("Logout"):
         st.session_state.logged_in = False
         st.rerun()
@@ -200,4 +200,5 @@ if search:
 
 st.divider()
 st.page_link("pages/bridge_status.py", label="Go to Bridge Status Page")
+
 
